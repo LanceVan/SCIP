@@ -1,0 +1,10 @@
+(define (iterative-improve good-enough? better)
+	(lambda (x)
+		(let ((next iterative (better x)))
+			(if (good-enough? x next)
+				x
+				((iterative-improve good-enough? better) (next))
+			)
+		)
+	)
+)
